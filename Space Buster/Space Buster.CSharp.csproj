@@ -84,6 +84,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CharacterManager.cs" />
+    <Compile Include="Assets\Space Buster\player\Scripts\CharacterInfo.cs" />
     <Compile Include="Assets\Space Buster\scripts\AIBullet.cs" />
     <Compile Include="Assets\Space Buster\scripts\AICharacterControl.cs" />
     <Compile Include="Assets\Space Buster\scripts\AmmoCheck.cs" />
