@@ -25,8 +25,9 @@ public class AIBullet : MonoBehaviour {
 
     void OnTriggerEnter(Collider Enemy)
     {
+        Debug.Log(Enemy);
 
-        if (Enemy.name == "Earth" || Enemy.name == "Player")
+        if (Enemy.tag == "Player")
 
         {
             Enemy.SendMessage("ApplyDamage", Damage, SendMessageOptions.DontRequireReceiver);

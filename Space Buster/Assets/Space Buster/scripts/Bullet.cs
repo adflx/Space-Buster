@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider Enemy) {
 
-		if (Enemy.tag == "Enemy" || Enemy.tag == "Asteriod" || Enemy.tag == "Boss")
+		if (Enemy.tag == "Enemy")
 
 		{
             //if (Enemy.tag == "Enemy")
@@ -48,12 +48,20 @@ public class Bullet : MonoBehaviour {
 
             Enemy.SendMessage ("ApplyDamage", Damage,SendMessageOptions.DontRequireReceiver);
 			Instantiate (DestroyPrefab, transform.position, transform.rotation);
-			Destroy (this.gameObject); 
+            if (gameObject.name == "BS(Clone)")
+            {
+                Destroy(this.gameObject, 2);
+            }
+            Destroy (this.gameObject); 
 		}
 
         else if (Enemy.tag == "AIBullet")
         {
             Instantiate(DestroyPrefab, transform.position, transform.rotation);
+            if (gameObject.name == "BS(Clone)")
+            {
+                Destroy(this.gameObject, 2);
+            }
             Destroy(this.gameObject);
         }
         

@@ -8,21 +8,33 @@ public class EnemyHealth : MonoBehaviour {
     //public int Health { get { return heath; } }
     //private Image healthbar;
 
-   public float starthitpoint;
+   private float starthitpoint;
 
     private float hitpoint;
    
-    public AudioClip GunSound;
+    public AudioClip DeathSound;
 	public GameObject DestroyPrefab;
  //   public Image currenthealthbar1;
    
 
     void Start()
     {
-        // healthbar = transform.FindChild("EnemyCanvas").FindChild("Image").FindChild("Currentenemy").GetComponent<Image>(); 
-        hitpoint = starthitpoint;
-        
+        if (GameObject.FindGameObjectWithTag("Enemy").name.Equals("PA_Drone"))
+        {
+            hitpoint = 200;
 
+        }
+
+        else if (GameObject.FindGameObjectWithTag("Enemy").name.Equals("PA_Warrior"))
+        {
+            hitpoint = 150;
+
+        }
+        else if (GameObject.FindGameObjectWithTag("Enemy").name.Equals("Robot1"))
+        {
+            hitpoint = 350;
+
+        }
     }
 
     // Use this for initialization
@@ -30,7 +42,9 @@ public class EnemyHealth : MonoBehaviour {
 
 	{
 
-		hitpoint -= Damage;
+       
+        Debug.Log(hitpoint);
+        hitpoint -= Damage;
       // currenthealthbar1.fillAmount = hitpoint / starthitpoint;
 		if (hitpoint <= 0)
       
@@ -51,11 +65,13 @@ public class EnemyHealth : MonoBehaviour {
     void Dead () 
 
 	{
-     //   Destroy(transform.gameObject.GetComponentInParent<Canvas>().gameObject);
+        //   Destroy(transform.gameObject.GetComponentInParent<Canvas>().gameObject);
         
-		Destroy(this.gameObject);
+        Instantiate(DestroyPrefab, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(DeathSound, transform.position);
+        Destroy(this.gameObject);
        
-		Instantiate (DestroyPrefab, transform.position, transform.rotation);
-		AudioSource.PlayClipAtPoint(GunSound, transform.position);
-	}
+		
+       
+    }
 }
