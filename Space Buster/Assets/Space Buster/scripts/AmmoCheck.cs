@@ -19,7 +19,23 @@ public class AmmoCheck : MonoBehaviour {
 
     private void check()
     {
-        int ammoleft = Gun.ammonumber;
-        ammo.text = "Ammo: " + ammoleft.ToString("") + "/120";
+        int ammoleft;
+        if (GameObject.FindGameObjectWithTag("Player").name.Equals("Blue 1"))
+        {
+            ammoleft = Gun.ammonumber;
+            ammo.text = "Ammo: " + ammoleft.ToString("") + "/120";
+        }
+
+        else if (GameObject.FindGameObjectWithTag("Player").name.Equals("Red 1"))
+        {
+            ammoleft = ShotGun.ammonumber;
+            ammo.text = "Ammo: " + ammoleft.ToString("") + "/100";
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").name.Equals("Gray 1"))
+        {
+            
+            ammo.text = "Ammo: " + "0/0";
+        }
+        
     }
 }

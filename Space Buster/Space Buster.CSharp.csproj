@@ -97,8 +97,9 @@
     <Compile Include="Assets\Space Buster\scripts\CorpseDestroy.cs" />
     <Compile Include="Assets\Space Buster\scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Space Buster\scripts\Gun.cs" />
+    <Compile Include="Assets\Space Buster\scripts\ShotGun.cs" />
+    <Compile Include="Assets\Space Buster\scripts\Sword.cs" />
     <Compile Include="Assets\Space Buster\scripts\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\Space Buster\scripts\ThirdPersonCharacter.cs" />
     <Compile Include="Assets\Space Buster\scripts\ThirdPersonUserControl.cs" />
     <Compile Include="Assets\Space Buster\scripts\WaveSpawner.cs" />
     <Compile Include="Assets\StageSelection.cs" />

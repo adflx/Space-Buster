@@ -87,7 +87,7 @@ public class CharacterManager : MonoBehaviour {
     public void ToggleConfirm()
     {
         PlayerPrefs.SetInt("CharacterSelected",index);
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("Stage Selection");
     }
 
     // Update is called once per frame
