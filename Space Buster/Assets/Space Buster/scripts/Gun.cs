@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -13,9 +14,21 @@ public class Gun : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
-       
-	}
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "Character Selection" || sceneName == "Stage Selector")
+        {
+
+            GetComponent<Gun>().enabled = false;
+
+        }
+        else
+        {
+            GetComponent<Gun>().enabled = true;
+        }
+
+    }
 
 	// Update is called once per frame
 	void Update () {
