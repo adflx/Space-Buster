@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThirdPersonCamera : MonoBehaviour {
     private const float Y_ANGLE_MIN = 5.0f;
     private const float Y_ANGLE_MAX = 50.0f;
-    public Transform lookAt;
+    private Transform lookAt;
     public Transform camTransform;
 
     private Camera cam;
@@ -18,6 +18,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        lookAt = GameObject.FindGameObjectWithTag("Player").transform;
         camTransform = transform;
         cam = Camera.main;
 	}
