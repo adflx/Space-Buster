@@ -41,7 +41,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
 
-            if (sceneName == "Character Selection" || sceneName == "Stage Selector")
+            if (sceneName == "Character Selection" || sceneName == "Stage Selection")
             {
 
                 GetComponent<ThirdPersonCharacter>().enabled = false;
