@@ -13,6 +13,8 @@ public class move : MonoBehaviour {
     public float NextFire;
     public float FireRate;
 
+    public Animator anim;
+
 
     private float searchCountdown = 5f;
     
@@ -20,8 +22,9 @@ public class move : MonoBehaviour {
     void Start()
     {
 
-        playerpoints = GameObject.FindGameObjectWithTag("Player");
+        playerpoints = GameObject.Find(PlayerPrefs.GetString("CharacterName", "charname"));
         bulletsp = bulletspwan.transform;
+        anim = GetComponent<Animator>();   
 
     }
 
@@ -32,17 +35,25 @@ public class move : MonoBehaviour {
         float move = movespeed * Time.deltaTime;
         player = playerpoints.transform;
         transform.LookAt(player.position);
-        Debug.Log(Vector3.Distance(transform.position, player.position));
 
         if (Vector3.Distance(transform.position, player.position) >= 3)
         {
+            anim.SetBool("idle", false);
+            anim.SetBool("moving", true);
             transform.position += transform.forward * move * Time.deltaTime;
+            if(gameObject.name == "PA_Drone" || gameObject.name == "PA_Drone 1")
+            {
+                transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
+            }
             transform.LookAt(player.position);
             if (Vector3.Distance(transform.position, player.position) >= 0 )
             {
                 if(Time.time > NextFire)
                 {
+                    anim.SetBool("idle", true);
+                    anim.SetBool("moving", false);
                     transform.LookAt(player.position);
+                    bulletsp.LookAt(player.Find("Target").transform.position);
                     Instantiate(Bullet, bulletsp.transform.position, bulletsp.transform.rotation);
                     AudioSource.PlayClipAtPoint(GunSound, transform.position);
                     NextFire = Time.time + FireRate;

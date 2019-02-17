@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour {
 	{
 
        
-        Debug.Log(hitpoint);
+
         hitpoint -= Damage;
       // currenthealthbar1.fillAmount = hitpoint / starthitpoint;
 		if (hitpoint <= 0)

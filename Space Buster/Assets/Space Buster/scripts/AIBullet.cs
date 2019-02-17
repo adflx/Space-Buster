@@ -25,7 +25,7 @@ public class AIBullet : MonoBehaviour {
 
     void OnTriggerEnter(Collider Enemy)
     {
-        Debug.Log(Enemy);
+
 
         if (Enemy.tag == "Player")
 

@@ -31,8 +31,8 @@ public class PlayerHealthbar : MonoBehaviour {
         }
         else if (GameObject.FindGameObjectWithTag("Player").name.Equals("Red 1"))
         {
-            hitpoint = 100;
-            maxhitpoint = 3000;
+            hitpoint = 2500;
+            maxhitpoint = 2500;
         }
         else if (GameObject.FindGameObjectWithTag("Player").name.Equals("Gray 1"))
         {
