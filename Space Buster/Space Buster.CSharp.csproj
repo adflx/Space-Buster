@@ -99,6 +99,7 @@
     <Compile Include="Assets\Space Buster\scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Space Buster\scripts\Gun.cs" />
     <Compile Include="Assets\Space Buster\scripts\GunAI.cs" />
+    <Compile Include="Assets\Space Buster\scripts\Paused.cs" />
     <Compile Include="Assets\Space Buster\scripts\PlayerHealthbar.cs" />
     <Compile Include="Assets\Space Buster\scripts\ShotGun.cs" />
     <Compile Include="Assets\Space Buster\scripts\Sword.cs" />

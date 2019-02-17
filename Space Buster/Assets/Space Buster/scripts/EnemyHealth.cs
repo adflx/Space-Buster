@@ -50,8 +50,8 @@ public class EnemyHealth : MonoBehaviour {
       
 		{
             hitpoint = 0;
-
-			Dead();
+            this.gameObject.GetComponent<move>().enabled = false;
+            Dead();
 		}
 
     
@@ -69,6 +69,7 @@ public class EnemyHealth : MonoBehaviour {
         
         Instantiate(DestroyPrefab, transform.position, transform.rotation);
         AudioSource.PlayClipAtPoint(DeathSound, transform.position);
+        this.gameObject.GetComponent<move>().enabled = false;
         Destroy(this.gameObject);
        
 		

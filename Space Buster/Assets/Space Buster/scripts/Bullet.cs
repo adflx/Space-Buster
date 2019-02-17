@@ -33,18 +33,15 @@ public class Bullet : MonoBehaviour {
 		if (Enemy.tag == "Enemy")
 
 		{
-            //if (Enemy.tag == "Enemy")
-            //{
-            //    CheckScore.score += 50;
-            //}
-            //if (Enemy.tag == "Asteriod")
-            //{
-            //    CheckScore.score += 20;
-            //}
-            //if (Enemy.tag == "Boss")
-            //{
-            //    CheckScore.score += 1000;
-            //}
+            if (Enemy.tag == "Enemy")
+            {
+                CheckScore.score += 50;
+            }
+            
+            if (Enemy.tag == "Boss")
+            {
+                CheckScore.score += 1000;
+            }
 
             Enemy.SendMessage ("ApplyDamage", Damage,SendMessageOptions.DontRequireReceiver);
 			Instantiate (DestroyPrefab, transform.position, transform.rotation);

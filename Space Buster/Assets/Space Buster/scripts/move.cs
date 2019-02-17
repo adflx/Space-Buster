@@ -21,54 +21,77 @@ public class move : MonoBehaviour {
 
     void Start()
     {
-
+        
         playerpoints = GameObject.Find(PlayerPrefs.GetString("CharacterName", "charname"));
         bulletsp = bulletspwan.transform;
-        anim = GetComponent<Animator>();   
-
+        anim = GetComponent<Animator>();
+        player = playerpoints.transform;
+        transform.LookAt(player.position);
+        bulletsp.LookAt(player.position);
     }
 
 
     // Update is called once per frame
-    void Update () {
-        
-        float move = movespeed * Time.deltaTime;
-        player = playerpoints.transform;
-        transform.LookAt(player.position);
-
-        if (Vector3.Distance(transform.position, player.position) >= 3)
+    void Update()
+    {
+        if (gameObject.activeInHierarchy)
         {
-            anim.SetBool("idle", false);
-            anim.SetBool("moving", true);
-            transform.position += transform.forward * move * Time.deltaTime;
-            if(gameObject.name == "PA_Drone" || gameObject.name == "PA_Drone 1")
-            {
-                transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
-            }
             transform.LookAt(player.position);
-            if (Vector3.Distance(transform.position, player.position) >= 0 )
+            float move = movespeed * Time.deltaTime;
+            if (Vector3.Distance(transform.position, player.position) >= 3)
             {
-                if(Time.time > NextFire)
-                {
-                    anim.SetBool("idle", true);
-                    anim.SetBool("moving", false);
-                    transform.LookAt(player.position);
-                    bulletsp.LookAt(player.Find("Target").transform.position);
-                    Instantiate(Bullet, bulletsp.transform.position, bulletsp.transform.rotation);
-                    AudioSource.PlayClipAtPoint(GunSound, transform.position);
-                    NextFire = Time.time + FireRate;
-                }
+
+                anim.SetBool("idle", false);
+                anim.SetBool("moving", true);
+                transform.position += transform.forward * move * Time.deltaTime;
                 
+                if (gameObject.name == "PA_Drone" || gameObject.name == "PA_Drone 1")
+                {
+                    transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
+                }
+
+
+
+
+                if (Vector3.Distance(transform.position, player.position) >= 0)
+                {
+                    if (Time.time > NextFire)
+                    {
+
+                        anim.SetBool("idle", true);
+                        anim.SetBool("moving", false);
+                        Instantiate(Bullet, this.transform.position + transform.up, this.transform.rotation);
+                        AudioSource.PlayClipAtPoint(GunSound, transform.position);
+                        NextFire = Time.time + FireRate;
+                    }
+
+                }
+
+
+
             }
+
         }
+
+
+            
+      
         
+        
+
+
+
         //if (shipMovement() == true)
         //{
-            
+
         //    transform.position = Vector3.MoveTowards(transform.position, player.position, move);
 
         //}
     }
+
+   
+
+   
 
 
     bool shipMovement()

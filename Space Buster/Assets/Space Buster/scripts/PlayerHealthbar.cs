@@ -45,21 +45,22 @@ public class PlayerHealthbar : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	 if (hitpoint == 0)
+        if (hitpoint <= 0)
         {
             Time.timeScale = 0;
             gameoverback1.color = Color.black;
-            
+
             gameovertext1.color = Color.white;
 
-            
-            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton0))
+
+            if (Input.GetMouseButton(0) )
             {
                 Time.timeScale = 1;
                 SceneManager.LoadScene("Character Selection");
             }
         }
-	}
+
+    }
 
     private void UpdateHealthBar()
     {
@@ -96,8 +97,20 @@ public class PlayerHealthbar : MonoBehaviour {
 
         {
             hitpoint = 0;
+
+           
+                Time.timeScale = 0;
+                gameoverback1.color = Color.black;
+
+                gameovertext1.color = Color.white;
+
+
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton0))
+                {
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("Character Selection");
+                }
             
-            Destroy(this.gameObject);
             Debug.Log("DEAD");
         }
 

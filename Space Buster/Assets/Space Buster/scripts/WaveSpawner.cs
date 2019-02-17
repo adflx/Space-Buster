@@ -22,20 +22,17 @@ public class WaveSpawner : MonoBehaviour {
     public Wave[] waves;
     private int nextWave = 0;
     public Text wavetext;
-    public Text wavetext1;
+  
     private int waving = 1;
 
     public Text gm1;
-    public Text gm2;
+  
     public Image textback1;
-    public Image textback2;
+  
 
 
 
-    public Image back1;
-    public Image back2;
-    public Image back3;
-    public Image back4;
+  
 
 
     public Transform[] spawnPoints;
@@ -57,35 +54,27 @@ public class WaveSpawner : MonoBehaviour {
     {
       
         waveCountdown = timeBetweenWaves;
-        back1.color = Color.white;
-        back2.color = Color.white;
-        back3.color = Color.white;
-        back4.color = Color.white;
-    
-
-
+        textback1.color = Color.clear;
+        gm1.color = Color.clear;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (waving == 6)
+        if (waving == waves.Length)
         {
             Time.timeScale = 0;
 
             Debug.Log("All waves complete");
             gm1.text = "CONGRATULATION!";
-            gm2.text = "CONGRATULATION!";
             textback1.color = Color.black;
-            textback2.color = Color.black;
             gm1.color = Color.white;
-            gm2.color = Color.white;
 
             if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton0))
             {
                 Time.timeScale = 1;
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene("Stage Selection");
             }
         }
         
@@ -95,11 +84,7 @@ public class WaveSpawner : MonoBehaviour {
             {
 
                 wavetext.color = Color.yellow;
-
                 wavetext.text = "Wave" + " " + waving;
-                wavetext1.color = Color.yellow;
-
-                wavetext1.text = "Wave" + " " + waving;
             }
           
         }
@@ -157,21 +142,18 @@ public class WaveSpawner : MonoBehaviour {
         if (nextWave + 1 > waves.Length - 1)
         {
             Time.timeScale = 0;
-            
-            //Debug.Log("All waves complete");
-            //gm1.text = "CONGRATULATION!";
-            //gm2.text = "CONGRATULATION!";
-            //textback1.color = Color.black;
-            //textback2.color = Color.black;
-            //gm1.color = Color.white;
-            //gm2.color = Color.white;
-            
-            //if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton0))
-            //{
-            //    Time.timeScale = 1;
-            //    SceneManager.LoadScene("GameOver");
-            //}
-            
+
+            Debug.Log("All waves complete");
+            gm1.text = "CONGRATULATION!";
+            textback1.color = Color.black;
+            gm1.color = Color.white;
+
+            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene("Stage Selection");
+            }
+
         }
         else
         {
@@ -226,7 +208,6 @@ public class WaveSpawner : MonoBehaviour {
         //spawn enemy
 
         wavetext.color = Color.clear;
-        wavetext1.color = Color.clear;
 
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
