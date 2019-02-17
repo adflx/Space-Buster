@@ -37,7 +37,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                if(gameObject.name.Equals("Red 1") || gameObject.name.Equals("Gray 1"))
+                {
+                    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                }
+                
             }
         }
 
@@ -48,8 +52,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
-            bool crouch = Input.GetKey(KeyCode.C);
 
+            bool crouch;
+            if (gameObject.name.Equals("Blue 1") || gameObject.name.Equals("Gray 1"))
+            {
+                crouch = Input.GetKey(KeyCode.C);
+            }
+            else {
+                crouch = false;
+            }
             // calculate move direction to pass to character
             if (m_Cam != null)
             {

@@ -7,6 +7,7 @@ public class CharacterManager : MonoBehaviour {
 
     public GameObject[] characterList;
     public static int index;
+    public static string charname;
 
     void Awake()
     {
@@ -18,7 +19,7 @@ public class CharacterManager : MonoBehaviour {
     {
 
         index = PlayerPrefs.GetInt("CharacterSelected", index);
-
+        charname = PlayerPrefs.GetString("CharacterName", charname);
         characterList = new GameObject[transform.childCount];
 
 
@@ -40,7 +41,7 @@ public class CharacterManager : MonoBehaviour {
         if (characterList[index])
         {
             characterList[index].SetActive(true);
-
+            charname = characterList[index].name;
         }
     }
 
@@ -53,10 +54,12 @@ public class CharacterManager : MonoBehaviour {
 
 
         index--;
+
         if (index < 0)
         {
             index = characterList.Length - 1;
         }
+        charname = characterList[index].name;
 
         //toffle on new
         characterList[index].SetActive(true);
@@ -78,6 +81,8 @@ public class CharacterManager : MonoBehaviour {
             index = 0;
         }
 
+        charname = characterList[index].name;
+
         //toffle on new
         characterList[index].SetActive(true);
 
@@ -87,7 +92,9 @@ public class CharacterManager : MonoBehaviour {
     public void ToggleConfirm()
     {
         PlayerPrefs.SetInt("CharacterSelected",index);
-        SceneManager.LoadScene("Stage1");
+        PlayerPrefs.SetString("CharacterName", charname);
+    
+        SceneManager.LoadScene("Stage Selection");
     }
 
     // Update is called once per frame

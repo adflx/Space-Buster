@@ -30,30 +30,35 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider Enemy) {
 
-		if (Enemy.tag == "Enemy" || Enemy.tag == "Asteriod" || Enemy.tag == "Boss")
+		if (Enemy.tag == "Enemy")
 
 		{
-            //if (Enemy.tag == "Enemy")
-            //{
-            //    CheckScore.score += 50;
-            //}
-            //if (Enemy.tag == "Asteriod")
-            //{
-            //    CheckScore.score += 20;
-            //}
-            //if (Enemy.tag == "Boss")
-            //{
-            //    CheckScore.score += 1000;
-            //}
+            if (Enemy.tag == "Enemy")
+            {
+                CheckScore.score += 50;
+            }
+            
+            if (Enemy.tag == "Boss")
+            {
+                CheckScore.score += 1000;
+            }
 
             Enemy.SendMessage ("ApplyDamage", Damage,SendMessageOptions.DontRequireReceiver);
 			Instantiate (DestroyPrefab, transform.position, transform.rotation);
-			Destroy (this.gameObject); 
+            if (gameObject.name == "BS(Clone)")
+            {
+                Destroy(this.gameObject, 2);
+            }
+            Destroy (this.gameObject); 
 		}
 
         else if (Enemy.tag == "AIBullet")
         {
             Instantiate(DestroyPrefab, transform.position, transform.rotation);
+            if (gameObject.name == "BS(Clone)")
+            {
+                Destroy(this.gameObject, 2);
+            }
             Destroy(this.gameObject);
         }
         
