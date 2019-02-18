@@ -33,19 +33,11 @@ public class Bullet : MonoBehaviour {
 		if (Enemy.tag == "Enemy")
 
 		{
-            if (Enemy.tag == "Enemy")
-            {
-                CheckScore.score += 50;
-            }
             
-            if (Enemy.tag == "Boss")
-            {
-                CheckScore.score += 1000;
-            }
 
             Enemy.SendMessage ("ApplyDamage", Damage,SendMessageOptions.DontRequireReceiver);
 			Instantiate (DestroyPrefab, transform.position, transform.rotation);
-            if (gameObject.name == "BS(Clone)")
+            if (gameObject.name == "BSP(Clone)")
             {
                 Destroy(this.gameObject, 2);
             }
@@ -55,7 +47,7 @@ public class Bullet : MonoBehaviour {
         else if (Enemy.tag == "AIBullet")
         {
             Instantiate(DestroyPrefab, transform.position, transform.rotation);
-            if (gameObject.name == "BS(Clone)")
+            if (gameObject.name == "BSP(Clone)")
             {
                 Destroy(this.gameObject, 2);
             }

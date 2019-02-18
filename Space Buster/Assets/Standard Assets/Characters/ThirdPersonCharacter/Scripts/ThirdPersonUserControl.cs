@@ -39,6 +39,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if(gameObject.name.Equals("Red 1") || gameObject.name.Equals("Gray 1"))
                 {
+                   
                     m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
                 }
                 

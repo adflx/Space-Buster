@@ -1,0 +1,16 @@
+Weapons and area
+https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-heavy-87878
+https://assetstore.unity.com/packages/3d/props/guns/sci-fi-gun-light-87916
+https://assetstore.unity.com/packages/3d/environments/sci-fi/extreme-sci-fi-lite-50727
+https://assetstore.unity.com/packages/3d/characters/humanoids/scifi-robots-113422
+https://assetstore.unity.com/packages/3d/characters/robots/scifi-enemies-and-vehicles-15159
+https://assetstore.unity.com/packages/3d/environments/pa-scifi-warzone-environment-29829
+
+Audio
+Youtube Music Library
+
+Animations
+https://www.mixamo.com/#/
+
+Scripts
+https://github.com/adflx/Eureka

@@ -85,8 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CharacterManager.cs" />
+    <Compile Include="Assets\CheckJump.cs" />
     <Compile Include="Assets\CheckScene.cs" />
     <Compile Include="Assets\DestroyObject.cs" />
+    <Compile Include="Assets\NewData.cs" />
     <Compile Include="Assets\Space Buster\player\Scripts\CharacterInfo.cs" />
     <Compile Include="Assets\Space Buster\scripts\AIBullet.cs" />
     <Compile Include="Assets\Space Buster\scripts\AICharacterControl.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="Assets\Space Buster\scripts\CheckScore.cs" />
     <Compile Include="Assets\Space Buster\scripts\CorpseDestroy.cs" />
     <Compile Include="Assets\Space Buster\scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\Space Buster\scripts\GlobalAchievements.cs" />
     <Compile Include="Assets\Space Buster\scripts\Gun.cs" />
     <Compile Include="Assets\Space Buster\scripts\GunAI.cs" />
     <Compile Include="Assets\Space Buster\scripts\Paused.cs" />
@@ -108,6 +111,8 @@
     <Compile Include="Assets\Space Buster\scripts\WaveSpawner.cs" />
     <Compile Include="Assets\Space Buster\scripts\move.cs" />
     <Compile Include="Assets\StageSelection.cs" />
+    <Compile Include="Assets\SwordArt.cs" />
+    <Compile Include="Assets\SwordDamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

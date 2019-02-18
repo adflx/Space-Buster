@@ -172,12 +172,12 @@ public class WaveSpawner : MonoBehaviour {
            
             
             
-             if (GameObject.FindGameObjectWithTag("Boss") == null & (waving == 5))
+             if (GameObject.FindGameObjectWithTag("Boss") == null & (waving == waves.Length))
             {
                 waving++;
                 return false;
             }
-            else if (GameObject.FindGameObjectWithTag("Enemy") == null & (waving <= 4))
+            else if (GameObject.FindGameObjectWithTag("Enemy") == null & (waving <= waves.Length-1))
             {
                 waving++;
                 return false;

@@ -1,0 +1,6 @@
+1. Reach 100 score
+2. Reach 500 score
+3. Reach 1000 score
+4. Jump 5 times
+6. No ammo left
+7. Initial Input
