@@ -22,7 +22,6 @@ public class CheckScore : MonoBehaviour {
 
     private void UpdateScore()
     {
-      
         score1.text = "Score: "+score.ToString("");        
     }
 }

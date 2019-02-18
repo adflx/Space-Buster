@@ -11,7 +11,7 @@ public class CharacterManager : MonoBehaviour {
 
     void Awake()
     {
-        
+      
     }
 
     // Use this for initialization

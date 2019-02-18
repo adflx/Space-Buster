@@ -45,7 +45,7 @@ public class move : MonoBehaviour {
                 anim.SetBool("moving", true);
                 transform.position += transform.forward * move * Time.deltaTime;
                 
-                if (gameObject.name == "PA_Drone" || gameObject.name == "PA_Drone 1")
+                if (gameObject.name == "PA_Drone(Clone)" || gameObject.name == "PA_Drone 1(Clone)")
                 {
                     transform.position = new Vector3(transform.position.x, 3f, transform.position.z);
                 }
@@ -60,7 +60,14 @@ public class move : MonoBehaviour {
 
                         anim.SetBool("idle", true);
                         anim.SetBool("moving", false);
-                        Instantiate(Bullet, this.transform.position + transform.up, this.transform.rotation);
+                        if (gameObject.name == "PA_Drone(Clone)" || gameObject.name == "PA_Drone 1(Clone)")
+                        {
+                            Instantiate(Bullet, this.transform.position, this.transform.rotation);
+                        }
+                        else
+                        {
+                            Instantiate(Bullet, this.transform.position + transform.up, this.transform.rotation);
+                        }
                         AudioSource.PlayClipAtPoint(GunSound, transform.position);
                         NextFire = Time.time + FireRate;
                     }

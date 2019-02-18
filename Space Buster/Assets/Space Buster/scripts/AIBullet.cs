@@ -32,6 +32,8 @@ public class AIBullet : MonoBehaviour {
         {
             Enemy.SendMessage("ApplyDamage", Damage, SendMessageOptions.DontRequireReceiver);
             Instantiate(DestroyPrefab, transform.position, transform.rotation);
+            Destroy(GameObject.Find("BS(Clone)"), 2);
+            
             Destroy(this.gameObject);
 
         }
@@ -39,6 +41,7 @@ public class AIBullet : MonoBehaviour {
         else if(Enemy.tag == "PBullet")
         {
             Instantiate(DestroyPrefab, transform.position, transform.rotation);
+            Destroy(DestroyPrefab, 2);
             Destroy(this.gameObject);
         }
 
