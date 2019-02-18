@@ -13,10 +13,12 @@ public class ShotGun : MonoBehaviour {
     public AudioClip GunSound;
 	private  float NextFire= 0;
     public float FireRate;
-    public static int ammonumber = 100; 
+    public static int ammonumber; 
 
 	// Use this for initialization
 	void Start () {
+        ammonumber = 100;
+        GlobalAchievements.ach05Count = ammonumber;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
@@ -49,6 +51,7 @@ public class ShotGun : MonoBehaviour {
     private void FireGun()
     {
         ammonumber= ammonumber - 2;
+        GlobalAchievements.ach05Count = ammonumber;
         Ray ray = new Ray(BulletSpawn.position, BulletSpawn.forward);
         Instantiate(Bullet, BulletSpawn.transform.position, BulletSpawn.transform.rotation);
         Instantiate(Bullet, BulletSpawn1.transform.position, BulletSpawn.transform.rotation);

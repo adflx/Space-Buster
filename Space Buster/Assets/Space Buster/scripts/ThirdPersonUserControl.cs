@@ -37,6 +37,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (!m_Jump)
             {
+                GlobalAchievements.ach04Count += 1;
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
         }

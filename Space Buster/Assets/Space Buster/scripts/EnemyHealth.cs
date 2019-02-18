@@ -65,7 +65,35 @@ public class EnemyHealth : MonoBehaviour {
     void Dead () 
 
 	{
+
+        
         //   Destroy(transform.gameObject.GetComponentInParent<Canvas>().gameObject);
+        if (gameObject.name.Equals("PA_Drone(Clone)"))
+        {
+            CheckScore.score += 50;
+            GlobalAchievements.ach01Count += 50;
+            GlobalAchievements.ach02Count += 50;
+            GlobalAchievements.ach03Count += 50;
+
+        }
+
+        else if (gameObject.name.Equals("PA_Warrior(Clone)"))
+        {
+            
+            CheckScore.score += 30;
+            GlobalAchievements.ach01Count += 30;
+            GlobalAchievements.ach02Count += 30;
+            GlobalAchievements.ach03Count += 30;
+
+        }
+        else if (gameObject.name.Equals("Robot1(Clone)"))
+        {
+            CheckScore.score += 20;
+            GlobalAchievements.ach01Count += 20;
+            GlobalAchievements.ach02Count += 20;
+            GlobalAchievements.ach03Count += 20;
+
+        }
         
         Instantiate(DestroyPrefab, transform.position, transform.rotation);
         AudioSource.PlayClipAtPoint(DeathSound, transform.position);
